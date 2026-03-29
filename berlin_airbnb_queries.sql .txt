@@ -1,0 +1,79 @@
+ Project: Berlin Airbnb Listings Analysis
+ Author: Your Name
+ Tool: SQLiteOnline
+ Dataset: Inside Airbnb - Berlin Listings
+ Date: March 2026
+
+ Query 1: Average Nightly Price by Berlin District
+SELECT 
+    neighbourhood_gr AS district,
+    ROUND(AVG(price), 2) AS avg_price,
+    COUNT(*) AS total_listings
+FROM listings
+WHERE price IS NOT NULL
+AND price > 0
+AND neighbourhood_gr IS NOT NULL
+GROUP BY neighbourhood_gr
+ORDER BY avg_price DESC;
+
+ Query 2: Room Type Supply and Pricing Analysis
+SELECT 
+    room_type,
+    COUNT(*) AS total_listings,
+    ROUND(AVG(price), 2) AS avg_price,
+    ROUND(MIN(price), 2) AS min_price,
+    ROUND(MAX(price), 2) AS max_price
+FROM listings
+WHERE price IS NOT NULL
+AND price > 0
+AND room_type IS NOT NULL
+GROUP BY room_type
+ORDER BY avg_price DESC;
+
+ Query 3: Listing Supply by Berlin District
+SELECT 
+    neighbourhood_gr AS district,
+    COUNT(*) AS total_listings,
+    ROUND(AVG(price), 2) AS avg_price
+FROM listings
+WHERE neighbourhood_gr IS NOT NULL
+AND price > 0
+GROUP BY neighbourhood_gr
+ORDER BY total_listings DESC;
+
+ Query 4: Average Availability by Berlin District
+SELECT 
+    neighbourhood_gr AS district,
+    ROUND(AVG(availability_365), 0) AS avg_availability_days,
+    ROUND(AVG(price), 2) AS avg_price,
+    COUNT(*) AS total_listings
+FROM listings
+WHERE neighbourhood_gr IS NOT NULL
+AND availability_365 IS NOT NULL
+GROUP BY neighbourhood_gr
+ORDER BY avg_availability_days ASC;
+
+ Query 5: Most Reviewed Districts in Berlin
+SELECT 
+    neighbourhood_gr AS district,
+    SUM(number_of_review) AS total_reviews,
+    ROUND(AVG(number_of_review), 0) AS avg_reviews_per_listing,
+    COUNT(*) AS total_listings
+FROM listings
+WHERE neighbourhood_gr IS NOT NULL
+AND number_of_review IS NOT NULL
+GROUP BY neighbourhood_gr
+ORDER BY total_reviews DESC;
+
+ Query 6: Pricing Strategy by Room Type
+SELECT 
+    room_type,
+    ROUND(AVG(price), 2) AS avg_price,
+    ROUND(AVG(minimum_nights), 1) AS avg_minimum_nights,
+    COUNT(*) AS total_listings
+FROM listings
+WHERE price IS NOT NULL
+AND price > 0
+AND room_type IS NOT NULL
+GROUP BY room_type
+ORDER BY avg_price DESC;
