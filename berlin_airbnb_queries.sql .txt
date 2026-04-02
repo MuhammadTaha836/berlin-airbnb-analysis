@@ -1,5 +1,5 @@
  Project: Berlin Airbnb Listings Analysis
- Author: Your Name
+ Author: Muhammad Taha
  Tool: SQLiteOnline
  Dataset: Inside Airbnb - Berlin Listings
  Date: March 2026
