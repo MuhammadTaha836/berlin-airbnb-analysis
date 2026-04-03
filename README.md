@@ -30,6 +30,13 @@
 - Lichtenberg has highest avg reviews per listing at 43.58
 - Entire homes require avg 45 night minimum — reflecting Berlin's strict short term rental regulations
 
+Charts
+![District Pricing](district_pricing.png)
+![Supply Analysis](supply_analysis.png)
+![Availability Analysis](availability_analysis.png)
+![Reviews Analysis](reviews_analysis.png)
+![Room Type Pricing](room_type_pricing.png)
+
  Files
 - berlin_airbnb_queries.sql — All SQL queries used
 - berlin_airbnb_analysis.xlsx — Excel charts and analysis
